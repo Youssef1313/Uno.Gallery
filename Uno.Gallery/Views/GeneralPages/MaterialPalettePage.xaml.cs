@@ -23,6 +23,19 @@ namespace Uno.Gallery
 		public MaterialPalettePage()
 		{
 			this.InitializeComponent();
+			global::System.Diagnostics.Debug.WriteLine("CREATED MaterialPalettePage");
+			//WaitAndPrintVT();
+		}
+
+		//private async void WaitAndPrintVT()
+		//{
+		//	await Task.Delay(20000);
+		//	global::System.Diagnostics.Debug.WriteLine(Window.Current.Content.ShowLocalVisualTree());
+		//}
+
+		protected override Size MeasureOverride(Size availableSize)
+		{
+			return base.MeasureOverride(availableSize);
 		}
 	}
 }

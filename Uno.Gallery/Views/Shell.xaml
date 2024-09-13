@@ -249,6 +249,7 @@
 						   Height="0" />
 			<RowDefinition Height="auto" />
 			<RowDefinition Height="*" />
+			<RowDefinition Height="auto" />
 		</Grid.RowDefinitions>
 
 		<!-- Banner similar to the Uno website (WASM only) -->
@@ -560,5 +561,7 @@
 				HorizontalAlignment="Left"
 				AutomationProperties.AutomationId="NavToggle"
 				Style="{StaticResource PaneToggleButtonStyle}" />
+
+		<Button Click="OnClick" Content="Show VT" Grid.Row="4" />
 	</Grid>
 </UserControl>

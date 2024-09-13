@@ -384,7 +384,7 @@
 			<Setter.Value>
 				<ControlTemplate x:Key="DefaultSplitViewTemplate"
 								 TargetType="SplitView">
-					<Grid Background="{TemplateBinding Background}">
+					<Grid Background="{TemplateBinding Background}" Tag="SplitViewRootGrid">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition x:Name="ColumnDefinition1"
 											  Width="{Binding TemplateSettings.OpenPaneGridLength, FallbackValue=0, RelativeSource={RelativeSource Mode=TemplatedParent}}" />
@@ -394,8 +394,9 @@
 
 						<!--  Content Area  -->
 						<Grid x:Name="ContentRoot"
+							  Tag="SplitViewContentRoot"
 							  Grid.ColumnSpan="2">
-							<Border Child="{TemplateBinding Content}" />
+							<Border Child="{TemplateBinding Content}" Tag="SplitViewContentRootBorder" />
 							<win:Rectangle x:Name="LightDismissLayer"
 										   Fill="{StaticResource SplitViewDismissBackgroundColor}"
 										   Visibility="Collapsed" />
@@ -432,7 +433,6 @@
 							<Rectangle x:Name="HCPaneBorder"
 									   Width="1"
 									   HorizontalAlignment="Right"
-									   x:DeferLoadStrategy="Lazy"
 									   Fill="{ThemeResource SystemControlForegroundTransparentBrush}"
 									   Visibility="Collapsed" />
 						</Grid>
@@ -1312,6 +1312,7 @@
 
 										<ContentPresenter Grid.Row="2"
 														  Grid.ColumnSpan="2"
+														  Tag="Interesting"
 														  AutomationProperties.LandmarkType="Main"
 														  Content="{TemplateBinding Content}" />
 									</Grid>

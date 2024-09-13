@@ -94,8 +94,8 @@ public sealed partial class Shell : UserControl
 
 		void Adjust()
 		{
-                var full = App.Instance.MainWindow.Bounds;
-                var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
+			var full = App.Instance.MainWindow.Bounds;
+			var bounds = ApplicationView.GetForCurrentView().VisibleBounds;
 			var topPadding = Math.Abs(full.Top - bounds.Top);
 
 			if (topPadding > 0)
@@ -106,7 +106,7 @@ public sealed partial class Shell : UserControl
 	}
 #endif
 
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+	private void ToggleButton_Click(object sender, RoutedEventArgs e)
 	{
 		// Set theme for window root.
 		if (App.Instance.MainWindow.Content is FrameworkElement root)
@@ -131,6 +131,12 @@ public sealed partial class Shell : UserControl
 					break;
 			}
 		}
+	}
+
+	private void OnClick(object sender, RoutedEventArgs e)
+	{
+		var vt = this.ShowLocalVisualTree();
+		global::System.Diagnostics.Debug.WriteLine(vt);
 	}
 
 	private void OnNestedSampleFrameChanged(DependencyObject sender, DependencyProperty dp)
@@ -222,7 +228,7 @@ public sealed partial class Shell : UserControl
 
 	private void SamplesSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
 	{
-		if(args.Reason != AutoSuggestionBoxTextChangeReason.UserInput)
+		if (args.Reason != AutoSuggestionBoxTextChangeReason.UserInput)
 		{
 			return;
 		}
@@ -282,7 +288,7 @@ public sealed partial class Shell : UserControl
 
 	private async void OnAppBarButtonClick(object sender, RoutedEventArgs e)
 	{
-		if (sender is FrameworkElement { Tag: string { Length: >0 } url })
+		if (sender is FrameworkElement { Tag: string { Length: > 0 } url })
 		{
 			await Launcher.LaunchUriAsync(new Uri(url));
 		}

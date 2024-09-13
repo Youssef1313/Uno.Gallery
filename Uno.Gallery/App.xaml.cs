@@ -151,7 +151,7 @@ namespace Uno.Gallery
 			ShellNavigateTo(sample, trySynchronizeCurrentItem);
 		}
 
-		private void ShellNavigateTo(Sample sample, bool trySynchronizeCurrentItem)
+		internal void ShellNavigateTo(Sample sample, bool trySynchronizeCurrentItem)
 		{
 			var nv = _shell.NavigationView;
 			if (nv.Content?.GetType() != sample.ViewType)
