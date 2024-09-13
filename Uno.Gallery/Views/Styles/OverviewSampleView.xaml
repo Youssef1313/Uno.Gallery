@@ -14,31 +14,14 @@
 						  Background="{ThemeResource SurfaceBrush}"
 						  BorderBrush="{ThemeResource DividerBrush}"
 						  BorderThickness="1"
+						  Height="900"
 						  Margin="0,24,0,0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*"
-											  MaxWidth="240" />
-							<ColumnDefinition Width="*" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="Auto" />
-						</Grid.RowDefinitions>
 
 						<!-- Title, Description, Navigation button -->
-						<StackPanel x:Name="TextPart"
-									Grid.Column="0">
+						<StackPanel x:Name="TextPart">
 
-							<TextBlock Text="{Binding Sample.Title, RelativeSource={RelativeSource TemplatedParent}}"
-									   TextWrapping="Wrap"
-									   Style="{StaticResource TitleLarge}"
-									   Margin="16,16,16,0" />
+							
 
-							<TextBlock Text="{Binding Sample.Description, RelativeSource={RelativeSource TemplatedParent}}"
-									   Visibility="{Binding Sample.Description, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource IsNullOrEmptyToCollapsed}, FallbackValue=Collapsed}"
-									   TextWrapping="Wrap"
-									   Style="{StaticResource BodySmall}"
-									   Margin="16,16,16,0" />
 
 							<Button x:Name="PART_ViewButton"
 									Content="View component"
@@ -47,46 +30,7 @@
 									Style="{StaticResource TextButtonStyle}" />
 						</StackPanel>
 
-						<!-- Sample -->
-						<Border x:Name="SamplePart"
-								Grid.Column="1"
-								Background="{ThemeResource SampleSecondBackgroundBrush}"
-								Padding="16">
-							<ContentControl Content="{TemplateBinding Content}"
-											ContentTemplate="{TemplateBinding ContentTemplate}"
-											HorizontalAlignment="Stretch"
-											HorizontalContentAlignment="Stretch"
-											VerticalAlignment="Stretch"
-											VerticalContentAlignment="Top" />
-						</Border>
 
-						<VisualStateManager.VisualStateGroups>
-							<VisualStateGroup x:Name="FormFactors">
-								<VisualState x:Name="Desktop">
-									<VisualState.StateTriggers>
-										<AdaptiveTrigger MinWindowWidth="{StaticResource DesktopAdaptiveThresholdWidth}" />
-									</VisualState.StateTriggers>
-									<VisualState.Setters>
-									</VisualState.Setters>
-								</VisualState>
-
-								<VisualState x:Name="Mobile">
-									<VisualState.StateTriggers>
-										<AdaptiveTrigger MinWindowWidth="0" />
-									</VisualState.StateTriggers>
-									<VisualState.Setters>
-										<Setter Target="SamplePart.(Grid.Row)"
-												Value="1" />
-										<Setter Target="SamplePart.(Grid.Column)"
-												Value="0" />
-										<Setter Target="SamplePart.(Grid.ColumnSpan)"
-												Value="2" />
-										<Setter Target="TextPart.(Grid.ColumnSpan)"
-												Value="2" />
-									</VisualState.Setters>
-								</VisualState>
-							</VisualStateGroup>
-						</VisualStateManager.VisualStateGroups>
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>
