@@ -38,19 +38,5 @@ namespace Uno.Gallery
 
 		public static readonly DependencyProperty SampleProperty =
 			DependencyProperty.Register("Sample", typeof(Sample), typeof(OverviewSampleView), new PropertyMetadata(null));
-
-		protected override void OnApplyTemplate()
-		{
-			base.OnApplyTemplate();
-
-			var viewButton = (Button)GetTemplateChild(ViewButtonPartName);
-			viewButton.Click -= OnViewClicked;
-			viewButton.Click += OnViewClicked;
-
-			void OnViewClicked(object sender, RoutedEventArgs e)
-			{
-				(Application.Current as App)?.ShellNavigateTo(Sample);
-			}
-		}
 	}
 }

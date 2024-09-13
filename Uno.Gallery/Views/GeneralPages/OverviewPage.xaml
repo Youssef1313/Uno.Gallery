@@ -29,7 +29,7 @@
 					</local:OverviewSampleView>
 
 					<!-- ToggleSwitch -->
-					<local:OverviewSampleView SamplePageType="samples:ToggleSwitchSamplePage">
+					<local:OverviewSampleView SamplePageType="samples:RadioButtonSamplePage">
 						
 					</local:OverviewSampleView>
 
